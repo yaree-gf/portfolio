@@ -31,10 +31,18 @@ html(lang="en")
                         +icon(`${item}`, 'socials__icon')
             .hero__content
               .user-info
-                h1.user-info__desc Личный сайт
-                .user-info__username Анастасия Молодых
+                h1.user-info__desc 
+                  |Личный сайт 
+                  br
+                  | веб-разработчика
+                .user-info__username 
+                  |Анастасия
+                  br
+                  |Молодых
             .hero__btns
-              .scroll-down-btns Скроллить
+              .scroll-down-btns Скролл
+              .scroll-down-icon
+                +icon("scroll", 'scroll__icon')
     
         section.about
           .container
@@ -47,23 +55,24 @@ html(lang="en")
                   .user__text
                     -
                       var rows = [
-                        ["Проживаю", "г. Москва"],
-                        ["Возраст", "42 года"],
-                        ["Родилась", "30 января"]
+                        ["Проживаю:", "г. Москва"],
+                        ["Возраст:", "42 года"],
+                        ["Родилась:", "30 января"]
                       ];
                     table.user__data
                       table.user__data-table
                         each row in rows
                           tr.user__data-row
                             each cell in row
-                              td #{cell}
+                              td.user__data-cell #{cell}
 
               .about__right
-                .about__welcome-text Где буквы
-                .about__username куда их дели
+                .about__welcome-text Привет, меня зовут
+                h2.about__username Анастасия Молодых
                 .about__desc 
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi quos enim cum, earum sint nesciunt expedita repudiandae odio? Perspiciatis debitis, cumque minima nostrum ullam error enim velit nesciunt dignissimos labore!
+                  |Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                 .about__ps
+                  |Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
       section.values
         .triangles
           svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
