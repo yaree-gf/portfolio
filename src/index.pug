@@ -52,19 +52,18 @@ html(lang="en")
                   .user__avatar
                     .avatar
                       +image("content/user.jpg", "avatar__image", "user pic")
-                  .user__text
-                    -
-                      var rows = [
-                        ["Проживаю:", "г. Москва"],
-                        ["Возраст:", "42 года"],
-                        ["Родилась:", "30 января"]
-                      ];
-                    table.user__data
-                      table.user__data-table
-                        each row in rows
-                          tr.user__data-row
-                            each cell in row
-                              td.user__data-cell #{cell}
+                  .user__table
+                    .user-data__desc
+                      - var data = ["Проживаю:", "Возраст:", "Родилась:"];
+                      ul.user-data__list
+                        each item in data
+                          li.user-data__item #{item}
+                    .user-data__answ
+                      - var data = ["г. Москва", "42 года", "30 января"];
+                      ul.user-data__list
+                        each item in data
+                          li.user-data__item #{item}
+                    
 
               .about__right
                 .about__welcome-text Привет, меня зовут
@@ -80,28 +79,35 @@ html(lang="en")
           svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
             polygon(points="1000,0 1000,100 0,100")
         .container
-          .values__title
-            .values__title-text Чем я могу помочь
-            .values__title-subtext
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo ad dignissimos in error odit nihil repellat perferendis commodi! Fuga mollitia cum quia alias eligendi! Necessitatibus omnis temporibus quisquam consectetur a.
-          .values__content
-            ul.skills-graphic
-            -
-              var items = [
-                ["Frontend", ["Htmls", "CSS3", "JavaScript", "jQuery"]],
-                ["Workflow", ["Git", "Terminal", "Gulp", "jQuery"]]
-              ];
-            each row in items
-              li.skills-graphic__item
-                .skills-row
-                  .skills-row__title #{row[0]}
-                  .skills-row__content
-                    ul.skills
-                      each skill in row[1]
-                        li.skills__item
-                          .skill
-                            svg.skill__circle
-                            .skill__title #{skill}
+          .values__wrapper
+            +image("content/backpack.png", "value__img", "backpack pic")
+            .values__title
+              .values__title-text Чем я могу быть полезна вам
+              .values__title-subtext
+                |Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .values__content
+              -
+                var items = [
+                  ["Front-end", ["Html5", "CSS3", "JavaScript", "jQuery"]],
+                  ["Workflow", ["Git", "Terminal", "Gulp", "Webpack"]]
+                ];
+              ul.skills-graphic
+                each row in items
+                  li.skills-graphic__item
+                    .skills-row
+                      .skills-row__title #{row[0]}
+                      .skills-row__content
+                        ul.skills
+                          each skill in row[1]
+                            li.skills__item
+                              .skill
+                                svg.skill__circle(viewBox="0 0 100 100" preserveAspectRatio="none")
+                                  circle(cx="50" cy="50" r="40" fill="none" stroke="black" stroke-width="2")
+                                  circle(cx="50" cy="50" r="40" fill="none" stroke="url('#gradient')" stroke-width="7" stroke-dasharray="50 150" stroke-dashoffset="50")
+                                  linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0%")
+                                    stop(offset="0%" stop-color="#ad00ed")
+                                    stop(offset="100%" stop-color="#5500f2")
+                                .skill__title #{skill}
 
       section.works
         .works__title Мои Работы
