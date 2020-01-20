@@ -8,8 +8,116 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | main page
   body
+    
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      .welcome-section
+        section.hero
+          .container.hero__container
+            header.header.hero__header
+              .hero__logo
+                .logo AM  
+              .hero__nav
+                - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                ul.nav__list
+                  each item in menu
+                    li.nav__item
+                      a(href="").nav__link #{item}
+              .hero__links
+                - var icons = ["insta", "vk", "github"];
+                ul.socials
+                  each item in icons
+                    li.socials__item(class=`${index === 1 ? 'active' : ''}`)
+                      a(href="").socials__link
+                        +icon(`${item}`, 'socials__icon')
+            .hero__content
+              .user-info
+                h1.user-info__desc Личный сайт
+                .user-info__username Анастасия Молодых
+            .hero__btns
+              .scroll-down-btns Скроллить
+    
+        section.about
+          .container
+            .about__container
+              .about__left
+                .user
+                  .user__avatar
+                    .avatar
+                      +image("content/user.jpg", "avatar__image", "user pic")
+                  .user__text
+                    -
+                      var rows = [
+                        ["Проживаю", "г. Москва"],
+                        ["Возраст", "42 года"],
+                        ["Родилась", "30 января"]
+                      ];
+                    table.user__data
+                      table.user__data-table
+                        each row in rows
+                          tr.user__data-row
+                            each cell in row
+                              td #{cell}
+
+              .about__right
+                .about__welcome-text Где буквы
+                .about__username куда их дели
+                .about__desc 
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi quos enim cum, earum sint nesciunt expedita repudiandae odio? Perspiciatis debitis, cumque minima nostrum ullam error enim velit nesciunt dignissimos labore!
+                .about__ps
+      section.values
+        .triangles
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,0 0,100 1000,100")
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="1000,0 1000,100 0,100")
+        .container
+          .values__title
+            .values__title-text Чем я могу помочь
+            .values__title-subtext
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo ad dignissimos in error odit nihil repellat perferendis commodi! Fuga mollitia cum quia alias eligendi! Necessitatibus omnis temporibus quisquam consectetur a.
+          .values__content
+            ul.skills-graphic
+            -
+              var items = [
+                ["Frontend", ["Htmls", "CSS3", "JavaScript", "jQuery"]],
+                ["Workflow", ["Git", "Terminal", "Gulp", "jQuery"]]
+              ];
+            each row in items
+              li.skills-graphic__item
+                .skills-row
+                  .skills-row__title #{row[0]}
+                  .skills-row__content
+                    ul.skills
+                      each skill in row[1]
+                        li.skills__item
+                          .skill
+                            svg.skill__circle
+                            .skill__title #{skill}
+
+      section.works
+        .works__title Мои Работы
+        .works__content
+          .slider
+            .slider__display
+              img.slider__display-pic
+              .slider__display-thumbs
+                ul.slider-thumbs
+                  li.slider-thumbs__item
+                    a.slider-thumbs__link
+                      img.slider-thumbs__pic
+              .slider__buttons
+                .direction-btns
+                  a.direction-btn.direction-btn--next
+                  a.direction-btn.direction-btn--prev
+
+            .slider__info
+              .slider__tags
+                ul.tags
+                  li.tags__item html
+                  li.tags__item html
+                  li.tags__item html
+              .slider__info-text
+                h3.slider__info-title
+                .slider__info-desc
+              .slider__info-btns
+                a.iconend-link Посмотреть сайт
