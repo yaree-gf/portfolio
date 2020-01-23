@@ -1,0 +1,160 @@
+.works {
+    padding: 120px 0;
+}
+
+.works__title {
+    margin-bottom: 60px;
+}
+
+.works__content {
+    display: inline-flex;
+}
+
+.slider {
+    display: flex;
+}
+
+.slider__display {
+    position: relative;
+    width: 626px;
+    height: 356px;
+    z-index: 10;
+    min-width: 626px;
+
+    &::before {
+        content: '1';
+        position: absolute;
+        right: -145px;
+        //top: -50px;
+        bottom: 42px;
+        color: #e6e6e6;
+        font-size: 300px;
+        font-weight: 900;
+        z-index: 1;
+    }
+}
+
+.slider__display-pic {
+    width: 100%;
+    height: 100%;
+}
+
+.slider__display-thumbs {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.slider-thumbs__item {
+    width: 181px;
+    height: 102px;
+
+    &:hover {
+        border: #ff9a00 1px solid;
+    }
+}
+
+.slider__buttons {
+    position: absolute;
+    right: 0;
+    bottom: -53px;
+}
+
+.direction-btns {
+    display: flex;
+}
+
+.direction-btn{
+    width: 53px;
+    height: 53px;
+    background-color: #353e4e;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    fill: #727883;
+
+    &:hover {
+        fill: #fff;
+        background-color: #ff9a00
+    }
+}
+
+.btn--next, .btn--prev {
+    width: 10px;
+    height: 10px;
+    
+}
+
+.btn--next {
+    transform: rotate(-90deg);
+}
+
+.btn--prev {
+    transform: rotate(90deg);
+    fill: white;
+}
+
+.slider__info {
+    margin-left: 109px;
+}
+
+.tags {
+    display: flex;
+    //justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.tags__item {
+    //margin-bottom: 10px;
+    margin-right: 12px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #a7a7a8;
+    background-color: #f3f5f9;
+    border-radius: 30px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.slider__info-title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 48px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.slider__info-desc {
+    opacity: 0.7;
+    color: #464d62;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-bottom: 40px;
+}
+
+.iconend-link {
+    display: flex;
+    align-items: center;
+}
+
+.iconend-link__icon {
+    fill: #586ed3;
+    width: 15px;
+    height: 15px;
+    margin-right: 20px;
+}
+
+.iconend-link__title {
+    color: #586ed3;
+    font-size: 18px;
+    font-weight: 700;
+}

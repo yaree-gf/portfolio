@@ -31,8 +31,21 @@
     margin-bottom: 100px;
 }
 
+.values__content {
+    width: 100%;
+}
+
 .skills-graphic {
     margin-left: 120px;
+    width: 100%;
+}
+
+.skills-graphic__item {
+    margin-bottom: 50px;
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
 }
 
 .skills-row__title {
@@ -45,12 +58,25 @@
     display: flex;
 }
 
+.skill {
+    position: relative;
+    height: 134px;
+    width: 134px;
+}
+
+.skills__item {
+    width: 140px;
+}
 
 .skill__title {
     opacity: 0.5;
     color: #464d62;
-    font-family: "Open Sans";
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
-    text-transform: uppercase;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
