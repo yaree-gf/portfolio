@@ -1,8 +1,16 @@
 
+.welcome-section {
+  background-image: url(/src/images/background/Mountain-Baloon.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  clip-path: polygon(0% 0%, 0% 93%, 50% 100%, 100% 93%, 100% 0%); 
+}
+
 .hero {
     height: 100vh;
     min-width: 650px;
-    background-image: url(/src/images/background/Mountain_Baloon.jpg);
+    
   }
   
   .hero__container {
@@ -39,9 +47,48 @@
     align-items: center;
     justify-content: center;
   }
+
+  .user-info {
+    display: flex;
+    justify-content: center;
+  }
+
+  .user-info__desc {
+    margin-right: 60px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: right;
+    line-height: 30px;
+    opacity: 0.4;
+    color: #464d62;
+  }
+
+  .user-info__username {
+    color: #464e62;
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 60px;
+  }
   
   .hero__btns {
     display: flex;
     justify-content: center;
     padding: 50px 0;
+    cursor: pointer;
+  }
+
+  .scroll-down-btns {
+    color: #464d62;
+    font-size: 18px;
+    font-weight: 600;   
+  }
+
+  .scroll-down-icon{
+    margin-left: 8px;
+    fill: #464d62;
+  }
+
+  .scroll__icon {
+    width: 30px;
+    height: 30px;
   }

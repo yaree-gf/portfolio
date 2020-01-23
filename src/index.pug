@@ -16,7 +16,7 @@ html(lang="en")
             header.header.hero__header
               .hero__logo
                 .logo AM  
-              .hero__nav
+              nav.hero__nav
                 - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
                 ul.nav__list
                   each item in menu
@@ -31,10 +31,18 @@ html(lang="en")
                         +icon(`${item}`, 'socials__icon')
             .hero__content
               .user-info
-                h1.user-info__desc Личный сайт
-                .user-info__username Анастасия Молодых
+                h1.user-info__desc 
+                  |Личный сайт 
+                  br
+                  | веб-разработчика
+                .user-info__username 
+                  |Анастасия
+                  br
+                  |Молодых
             .hero__btns
-              .scroll-down-btns Скроллить
+              .scroll-down-btns Скролл
+              .scroll-down-icon
+                +icon("scroll", 'scroll__icon')
     
         section.about
           .container
@@ -44,80 +52,197 @@ html(lang="en")
                   .user__avatar
                     .avatar
                       +image("content/user.jpg", "avatar__image", "user pic")
-                  .user__text
-                    -
-                      var rows = [
-                        ["Проживаю", "г. Москва"],
-                        ["Возраст", "42 года"],
-                        ["Родилась", "30 января"]
-                      ];
-                    table.user__data
-                      table.user__data-table
-                        each row in rows
-                          tr.user__data-row
-                            each cell in row
-                              td #{cell}
+                  .user__table
+                    .user-data__desc
+                      - var data = ["Проживаю:", "Возраст:", "Родилась:"];
+                      ul.user-data__list
+                        each item in data
+                          li.user-data__item #{item}
+                    .user-data__answ
+                      - var data = ["г. Москва", "42 года", "30 января"];
+                      ul.user-data__list
+                        each item in data
+                          li.user-data__item #{item}
+                    
 
               .about__right
-                .about__welcome-text Где буквы
-                .about__username куда их дели
+                .about__welcome-text Привет, меня зовут
+                h2.about__username Анастасия Молодых
                 .about__desc 
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi quos enim cum, earum sint nesciunt expedita repudiandae odio? Perspiciatis debitis, cumque minima nostrum ullam error enim velit nesciunt dignissimos labore!
+                  |Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                 .about__ps
+                  |Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
       section.values
-        .triangles
-          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
-            polygon(points="0,0 0,100 1000,100")
-          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
-            polygon(points="1000,0 1000,100 0,100")
+        //-.triangles
+        //-  svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+        //-    polygon(points="0,0 0,100 1000,100")
+        //-  svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+        //-    polygon(points="1000,0 1000,100 0,100")
         .container
-          .values__title
-            .values__title-text Чем я могу помочь
-            .values__title-subtext
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo ad dignissimos in error odit nihil repellat perferendis commodi! Fuga mollitia cum quia alias eligendi! Necessitatibus omnis temporibus quisquam consectetur a.
-          .values__content
-            ul.skills-graphic
-            -
-              var items = [
-                ["Frontend", ["Htmls", "CSS3", "JavaScript", "jQuery"]],
-                ["Workflow", ["Git", "Terminal", "Gulp", "jQuery"]]
-              ];
-            each row in items
-              li.skills-graphic__item
-                .skills-row
-                  .skills-row__title #{row[0]}
-                  .skills-row__content
-                    ul.skills
-                      each skill in row[1]
-                        li.skills__item
-                          .skill
-                            svg.skill__circle
-                            .skill__title #{skill}
+          .values__wrapper
+            +image("content/backpack.png", "value__img", "backpack pic")
+            .values__title
+              .values__title-text Чем я могу быть полезна вам
+              .values__title-subtext
+                |Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .values__content
+              -
+                var items = [
+                  ["Front-end", ["Html5", "CSS3", "JavaScript", "jQuery"]],
+                  ["Workflow", ["Git", "Terminal", "Gulp", "Webpack"]]
+                ];
+              ul.skills-graphic
+                each row in items
+                  li.skills-graphic__item
+                    .skills-row
+                      .skills-row__title #{row[0]}
+                      .skills-row__content
+                        ul.skills
+                          each skill in row[1]
+                            li.skills__item
+                              .skill
+                                svg.skill__circle(viewBox="0 0 134 134" preserveAspectRatio="none")
+                                  circle(cx="67" cy="67" r="50" fill="none" stroke='#e9e9e9' stroke-width="8")
+                                  circle(cx="67" cy="67" r="50" fill="none" stroke="url('#gradient')" stroke-width="16" stroke-dasharray="50 150" stroke-dashoffset="50")
+                                  linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0%")
+                                    stop(offset="0%" stop-color="#ad00ed")
+                                    stop(offset="100%" stop-color="#5500f2")
+                                .skill__title #{skill}
 
       section.works
-        .works__title Мои Работы
-        .works__content
-          .slider
-            .slider__display
-              img.slider__display-pic
-              .slider__display-thumbs
-                ul.slider-thumbs
-                  li.slider-thumbs__item
-                    a.slider-thumbs__link
-                      img.slider-thumbs__pic
-              .slider__buttons
-                .direction-btns
-                  a.direction-btn.direction-btn--next
-                  a.direction-btn.direction-btn--prev
+        .container
+          .works__title.section-title Мои Работы
+          .works__content
+            .slider
+              .slider__display
+                +image("content/works/1.jpg", "slider__display-pic", "work one")
+                //-img.slider__display-pic
+                .slider__display-thumbs
+                  - var slide = ['1', '2', '3'];
+                  ul.slider-thumbs
+                    each item in slide
+                      li.slider-thumbs__item
+                        a(href="").slider-thumbs__link 
+                          +image("content/works/1.jpg", "slider__display-pic", "work one")
+                          //-img.slider-thumbs__pic 
+                .slider__buttons
+                  .direction-btns
+                    a.direction-btn.direction-btn--next
+                      +icon('arrow-down', 'btn--next')
+                    a.direction-btn.direction-btn--prev
+                      +icon('arrow-down', 'btn--prev')
 
-            .slider__info
-              .slider__tags
-                ul.tags
-                  li.tags__item html
-                  li.tags__item html
-                  li.tags__item html
-              .slider__info-text
-                h3.slider__info-title
-                .slider__info-desc
-              .slider__info-btns
-                a.iconend-link Посмотреть сайт
+              .slider__info
+                .slider__tags
+                  ul.tags
+                    li.tags__item HTML
+                    li.tags__item CSS
+                    li.tags__item Javascript
+                .slider__info-text
+                  h3.slider__info-title Сайт школы
+                    br
+                    | образования
+                  .slider__info-desc Этот парень проходил обучение 
+                    br
+                    |веб-разработке не где-то, а в LoftSchool! 2 
+                    br
+                    |месяца только самых тяжелых 
+                    br
+                    |испытаний и бессонных ночей!
+                .slider__info-btns
+                  a.iconend-link
+                    +icon('link', 'iconend-link__icon')
+                    .iconend-link__title Посмотреть сайт
+
+      section.contacts-feed
+        .container
+          section.review
+            h2.review__title.section-title Что обо мне говорят
+              .review-slider__buttons
+                .direction-btns
+                  a.direction-btn.review-btn--next
+                    +icon('arrow-down', 'btn--next')
+                  a.direction-btn.review-btn--prev
+                    +icon('arrow-down', 'btn--prev')
+            .review__content
+              .review-slider
+                .review-slider__display
+                  ul.review-slider__list
+                    li.review-slider__item
+                      .review-slider__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                      .review-slider__author 
+                        .review-slider__userpic
+                          +image("content/reviews/user1.jpg", "review-slider__pic", "автор отзыва")
+                          //-img(src="/src/images/content/reviews/user1.jpg")
+                        .review-slider__info
+                          .review-slider__info--name Ковальчук Дмитрий
+                          .review-slider__info--position Основатель Loftschool
+                    li.review-slider__item
+                      .review-slider__text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.
+                      .review-slider__author 
+                        .review-slider__userpic
+                          +image("content/reviews/user2.jpg", "review-slider__pic", "автор отзыва")
+                        .review-slider__info
+                          .review-slider__info--name Владимир Сабанцев
+                          .review-slider__info--position Преподаватель
+                
+          section.contacts
+            h2.contacts__title.section-title Связаться со мной
+            .contacts-form__wrapper
+              form.contacts-form(action="", method="POST", id="contactsForm")
+                .contacts-form__row
+                  label.contacts-form__label
+                    span.contact-form__subtitle Введите ваше имя
+                    .input__wrapper
+                      .input__pic
+                        +icon('user', 'input__icon')
+                      input.contact-form__input(type="text", name="name", placeholder="Ковальчук Дмитрий")
+                  label.contacts-form__label
+                    span.contact-form__subtitle Введите ваш email
+                    .input__wrapper
+                      .input__pic
+                        +icon('envelope', 'input__icon')
+                      input.contact-form__input(type="text", name="email", placeholder="loftschool@study.com")
+                .contacts-form__row.contacts-form__row
+                  label.contacts-form__label
+                    span.contact-form__subtitle Сообщение к письму
+                    .input__wrapper
+                      .input__pic
+                        +icon('message', 'input__icon')
+                      input.contact-form__input.contact-form__input--textarea(type="textarea", name="text", placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
+                .contacts-form__row
+                  button.contacts-form__button(type="submit") Отправить
+      
+      footer.footer
+        .container
+          .footer__wrapper
+            .footer__left
+              .footer__copyright
+                span.footer__copyright--year © 2020
+                .footer__copyright--text
+                  h2.footer__copyright--username Анастасия
+                    br
+                    |Молодых
+                  h1.footer__copyright--desc Личный сайт 
+                    br
+                    |веб-разработчика
+            .footer__right
+              nav.footer__nav
+                - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                ul.nav__list
+                  each item in menu
+                    li.nav__item
+                      a(href="").nav__link #{item}
+              .footer__inner
+                .footer__desc
+                  .footer__desc--subtext Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+                  .footer__links
+                    - var icons = ["insta", "vk", "github"];
+                    ul.socials
+                      each item in icons
+                        li.socials__item.socials__item--footer(class=`${index === 1 ? 'active' : ''}`)
+                          a(href="").socials__link.socials__link--footer
+                            +icon(`${item}`, 'socials__icon')
+                .footer__quote
+                  span.footer__quote--text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+                  span.footer__quote--author Martin Golding
