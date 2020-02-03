@@ -1,0 +1,24 @@
+script(type="text/x-template")#skills
+    .values__content-container
+        -
+          var items = [
+            ["Front-end", ["Html5", "CSS3", "JavaScript", "jQuery"]],
+            ["Workflow", ["Git", "Terminal", "Gulp", "Webpack"]]
+          ];
+        ul.skills-graphic
+          each row in items
+            li.skills-graphic__item
+              .skills-row
+                .skills-row__title #{row[0]}
+                .skills-row__content
+                  ul.skills
+                    each skill in row[1]
+                      li.skills__item
+                        .skill
+                          svg.skill__circle(viewBox="0 0 134 134" preserveAspectRatio="none")
+                            circle(cx="67" cy="67" r="50" fill="none" stroke='#e9e9e9' stroke-width="8")
+                            circle(cx="67" cy="67" r="50" fill="none" stroke="url('#gradient')" stroke-width="16" stroke-dasharray="50 150" stroke-dashoffset="50")
+                            linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0%")
+                              stop(offset="0%" stop-color="#ad00ed")
+                              stop(offset="100%" stop-color="#5500f2")
+                          .skill__title #{skill}

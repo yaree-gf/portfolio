@@ -1,0 +1,44 @@
+section.works
+        .container
+          .works__title.section-title Мои Работы
+          .works__content
+            .slider
+              .slider__display
+                +image("content/works/1.jpg", "slider__display-pic", "work one")
+                //-img.slider__display-pic
+                .slider__display-thumbs
+                  - var slide = ['1', '2', '3'];
+                  ul.slider-thumbs
+                    each item in slide
+                      li.slider-thumbs__item
+                        a(href="").slider-thumbs__link 
+                          +image("content/works/1.jpg", "slider__display-pic", "work one")
+                          //-img.slider-thumbs__pic 
+                .slider__buttons
+                  .direction-btns
+                    a.direction-btn.direction-btn--next
+                      +icon('arrow-down', 'btn--next')
+                    a.direction-btn.direction-btn--prev
+                      +icon('arrow-down', 'btn--prev')
+
+              .slider__info
+                .slider__tags
+                  ul.tags
+                    li.tags__item HTML
+                    li.tags__item CSS
+                    li.tags__item Javascript
+                .slider__info-text
+                  h3.slider__info-title Сайт школы
+                    br
+                    | образования
+                  .slider__info-desc Этот парень проходил обучение 
+                    br
+                    |веб-разработке не где-то, а в LoftSchool! 2 
+                    br
+                    |месяца только самых тяжелых 
+                    br
+                    |испытаний и бессонных ночей!
+                .slider__info-btns
+                  a.iconend-link
+                    +icon('link', 'iconend-link__icon')
+                    .iconend-link__title Посмотреть сайт
