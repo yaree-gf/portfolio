@@ -86,10 +86,15 @@ html(lang="en")
               .values__title-subtext
                 |Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
             .values__content
+              //-include ./templates/components/skills.pug
               #skills-component
+                 
               
-              
-      include ./templates/works.pug
+      section.works
+        .container
+          .works__title.section-title Мои Работы
+          .works__content
+            #slider-component
       
 
       section.contacts-feed
@@ -185,4 +190,4 @@ html(lang="en")
                   span.footer__quote--text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                   span.footer__quote--author Martin Golding
 
-include ./templates/entry.pug
+      include ./templates/entry.pug
